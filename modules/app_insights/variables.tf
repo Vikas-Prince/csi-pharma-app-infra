@@ -1,0 +1,32 @@
+variable "app_insights_name" {
+  description = "Name of the Application Insights resource"
+  type        = string
+  default     = "csi-appinsights"
+}
+
+variable "location" {
+  description = "Azure region"
+  type        = string
+  default     = "Central India"
+}
+
+variable "resource_group_name" {
+  description = "Azure resource group where this will be created"
+  type        = string
+  default     = "csi-observability-rg"
+}
+
+variable "application_type" {
+  description = "Type of application (e.g. web, java, node.js)"
+  type        = string
+  default     = "java"
+}
+
+variable "tags" {
+  description = "Tags to associate with Application Insights"
+  type        = map(string)
+  default     = {
+    environment = "dev"
+    project     = "csi-aks-observability"
+  }
+}
