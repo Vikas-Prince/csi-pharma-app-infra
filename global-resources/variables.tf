@@ -36,13 +36,6 @@ variable "subnet_address_prefix" {
   default     = ["10.10.0.0/24"]
 }
 
-# This will be populated from VNet module output, so you won't need to input it manually
-variable "vm_subnet_id" {
-  description = "Subnet ID where VMs will be deployed"
-  type        = string
-  default     = ""
-}
-
 variable "vm_admin_username" {
   description = "Admin username for VM access"
   type        = string
