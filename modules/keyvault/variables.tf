@@ -19,7 +19,6 @@ variable "resource_group_name" {
 variable "tenant_id" {
   description = "Azure Tenant ID"
   type        = string
-  default     = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 }
 
 variable "sku_name" {

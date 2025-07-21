@@ -25,16 +25,6 @@ variable "address_space" {
 variable "subnets" {
   description = "A map of subnet names and their CIDR blocks"
   type = map(list(string))
-  
-  default = {
-    subnet1 = ["10.0.1.0/24"]
-    subnet2 = ["10.0.2.0/24"]
-  }
-
-  validation {
-    condition = alltrue([for subnet in var.subnets : alltrue([for cidr in subnet : can(ipcidr(cidr))])])
-    error_message = "Each subnet address prefix must be a valid CIDR block."
-  }
 }
 
 variable "tags" {
