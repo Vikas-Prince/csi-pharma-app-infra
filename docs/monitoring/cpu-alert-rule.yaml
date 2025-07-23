@@ -1,0 +1,16 @@
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  name: cpu-alert
+  namespace: monitoring
+spec:
+  groups:
+    - name: node-cpu-alerts
+      rules:
+        - alert: HighCPUUsage
+          expr: (100 - (avg by(instance) (rate(node_cpu_seconds_total{mode="idle"}[5m])) * 100) > 30
+          for: 1m
+          labels:
+            severity: warning
+          annotations:
+            summary: "Node CPU usage is above 30%"
